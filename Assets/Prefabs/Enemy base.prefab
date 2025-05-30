@@ -150,6 +150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _patrolPoints: []
+  _attackRange: 1.5
+  _attackCooldown: 2
+  _maxHealth: 50
 --- !u!114 &8516666521546301079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +170,7 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  _enemyPatrol: {fileID: 23573883288055385}
+  _enemyAI: {fileID: 23573883288055385}
 --- !u!1 &4870888801938954461
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 4870888801938954461}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

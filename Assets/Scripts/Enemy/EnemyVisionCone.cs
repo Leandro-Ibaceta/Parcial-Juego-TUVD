@@ -5,7 +5,7 @@ public class EnemyVisionCone : MonoBehaviour
     [SerializeField] private float _visionRange = 10f;
     [SerializeField] private float _visionAngle = 45f;
     [SerializeField] private LayerMask _playerLayer;
-    [SerializeField] private EnemyPatrol _enemyPatrol;
+    [SerializeField] private EnemyAI _enemyAI;
 
     private void Update()
     {
@@ -23,7 +23,7 @@ public class EnemyVisionCone : MonoBehaviour
                 {
                     if (hitInfo.collider.CompareTag("Player"))
                     {
-                        _enemyPatrol.ChasePlayer(hitInfo.transform);
+                        _enemyAI.SetTarget(hitInfo.transform);
                     }
                 }
             }
