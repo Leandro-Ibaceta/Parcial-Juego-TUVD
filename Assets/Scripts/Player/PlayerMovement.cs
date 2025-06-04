@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _input;
     private Vector3 _movementRelativeToCamera;
 
-<<<<<<< HEAD
     private bool _onStealth = false;
     
     //Animation variables
@@ -25,11 +24,6 @@ public class PlayerMovement : MonoBehaviour
     {
         get { return _onStealth; }
     }
-=======
-    //Animation variables
-    [SerializeField] private Animator _animator;
-    private int _isWalkingHash, _isRunningHash;
->>>>>>> f15cf7f468fb1059aac6ddf436790db624d6f959
    
 
     private void Awake()
@@ -41,10 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-<<<<<<< HEAD
         _speed = _WalkingSpeed;
-=======
->>>>>>> f15cf7f468fb1059aac6ddf436790db624d6f959
         _isWalkingHash = Animator.StringToHash("IsWalking");
         _isRunningHash = Animator.StringToHash("IsRunning");
     }
@@ -79,10 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
         if ((!movePressed && isWalking))
             _animator.SetBool(_isWalkingHash, false);
-<<<<<<< HEAD
            
-=======
->>>>>>> f15cf7f468fb1059aac6ddf436790db624d6f959
 
         
         
@@ -100,17 +88,10 @@ public class PlayerMovement : MonoBehaviour
         posToLookAt.z = _movementRelativeToCamera.z;
         posToLookAt = posToLookAt.normalized;
 
-<<<<<<< HEAD
         
         Quaternion targetRotation = posToLookAt == Vector3.zero ? transform.rotation : Quaternion.LookRotation(posToLookAt);
         
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-=======
-        Quaternion rotation = transform.rotation;
-        Quaternion targetRotation = posToLookAt == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(posToLookAt);
-        
-        transform.rotation = Quaternion.Slerp(rotation, targetRotation, rotationSpeed * Time.deltaTime);
->>>>>>> f15cf7f468fb1059aac6ddf436790db624d6f959
     }
 
     private Vector3 MoveRelativeToCamera(Vector2 input)
@@ -124,7 +105,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Crouch(InputAction.CallbackContext callbackContext)
     {
-<<<<<<< HEAD
         float standingHeight = 2f;
         float crouchingHeight = 0.75f;
 
@@ -143,15 +123,6 @@ public class PlayerMovement : MonoBehaviour
             _speed = _WalkingSpeed;
             _animator.SetBool("IsCrouching", false);
             _onStealth = false;
-=======
-        if(callbackContext.performed)
-        {
-            _animator.SetBool("IsCrouching", true);
-        }
-        if (callbackContext.canceled)
-        {
-            _animator.SetBool("IsCrouching", false);
->>>>>>> f15cf7f468fb1059aac6ddf436790db624d6f959
 
         }
         
