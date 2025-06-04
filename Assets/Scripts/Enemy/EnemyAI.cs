@@ -56,20 +56,20 @@ public class EnemyAI : MonoBehaviour
         switch (_state)
         {
             case EnemyState.Patrolling:
-                MoveTowardsTarget(_currentTarget, _patrolSpeed);
-                break;
+    MoveTowardsTarget(_currentTarget, _patrolSpeed);
+    break;
 
-            case EnemyState.Chasing:
-                if (_playerTransform != null)
-                {
-                    MoveTowardsTarget(_playerTransform.position, _chaseSpeed);
+case EnemyState.Chasing:
+    if (_playerTransform != null)
+    {
+        MoveTowardsTarget(_playerTransform.position, _chaseSpeed);
 
-                    if (!_isWindingUp && IsPlayerInAttackRange())
-                    {
-                        StartCoroutine(AttackRoutine());
-                    }
-                }
-                break;
+        if (!_isWindingUp && IsPlayerInAttackRange())
+        {
+            StartCoroutine(AttackRoutine());
+        }
+    }
+    break;
 
         }
     }
