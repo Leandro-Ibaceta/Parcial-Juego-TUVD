@@ -178,7 +178,7 @@ case EnemyState.Chasing:
         {
             if (h.CompareTag("Player") && h.TryGetComponent<IDamageable>(out var d))
             {
-                d.TakeDamage(999f); // Daño letal
+                d.TakeDamage(999f);
                 Debug.Log("Player destroyed!");
             }
         }
@@ -198,3 +198,4 @@ case EnemyState.Chasing:
         Destroy(gameObject);
     }
 }
+
