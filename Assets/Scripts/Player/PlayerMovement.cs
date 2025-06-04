@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     
     //Animation variables
     [SerializeField] private Animator _animator;
-
-    private int _isWalkingHash, _isRunningHash;
+    private bool _isCrouching = false;
+   
 
    public bool OnStealth 
     {
@@ -36,8 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _speed = _WalkingSpeed;
-        _isWalkingHash = Animator.StringToHash("IsWalking");
-        _isRunningHash = Animator.StringToHash("IsRunning");
+        
     }
 
 
@@ -61,15 +60,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer(Vector3 input)
     {
-        bool isWalking = _animator.GetBool(_isWalkingHash);
-        bool isRunning = _animator.GetBool(_isRunningHash);
+        bool isWalking = _animator.GetBool("IsWalking");
         bool movePressed = _input.x != 0 || _input.y != 0;
 
         if (movePressed && !isWalking)
-            _animator.SetBool(_isWalkingHash, true);
+            _animator.SetBool("IsWalking", true);
 
         if ((!movePressed && isWalking))
-            _animator.SetBool(_isWalkingHash, false);
+            _animator.SetBool("IsWalking", false);
            
 
         
@@ -113,7 +111,8 @@ public class PlayerMovement : MonoBehaviour
             _playerCollider.height = crouchingHeight;
             _playerCollider.center = new Vector3(0, -0.5f, 0);
             _speed = _CrouchingSpeed;
-            _animator.SetBool("IsCrouching", true);
+            _isCrouching = !_isCrouching;
+            _animator.SetBool("IsCrouching", _isCrouching);
             _onStealth = true;
         }
         if (callbackContext.canceled)
@@ -121,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             _playerCollider.height = standingHeight;
             _playerCollider.center = Vector3.zero;
             _speed = _WalkingSpeed;
-            _animator.SetBool("IsCrouching", false);
+            
             _onStealth = false;
 
         }
