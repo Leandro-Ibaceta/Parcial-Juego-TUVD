@@ -1590,6 +1590,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 23573883288055385, guid: d13a387cde46610408ef127206b72747,
         type: 3}
+      propertyPath: _speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 23573883288055385, guid: d13a387cde46610408ef127206b72747,
+        type: 3}
+      propertyPath: _chaseSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 23573883288055385, guid: d13a387cde46610408ef127206b72747,
+        type: 3}
       propertyPath: _orbitSpeed
       value: 0.5
       objectReference: {fileID: 0}
@@ -1597,6 +1607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _attackRange
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23573883288055385, guid: d13a387cde46610408ef127206b72747,
+        type: 3}
+      propertyPath: _patrolSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 23573883288055385, guid: d13a387cde46610408ef127206b72747,
         type: 3}
